@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Evolution - Estratégias Digitais</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <!-- Botão do menu hambúrguer -->
+            <button class="hamburger" id="hamburger-menu">
+                <i class="bi bi-list"></i>
+            </button>
+            <!-- Logomarca centralizada -->
+            <a href="#">
+                <img src="imagens/logo.png" alt="Logomarca Perfect Evolution" class="logo">
+            </a>
+            <!-- Links do menu -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <!-- Botão "Solicite uma Consulta" (oculto em telas menores) -->
+            <a href="#contato" class="cta-btn">Solicite uma Consulta</a>
+        </nav>
+    </header>
+    
+    
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-image-container">
+                <!-- Imagem centralizada -->
+                <img src="imagens/meu carrossel.png" alt="Estratégias Digitais" class="hero-image">
+            </div>
+            <div class="hero-content">
+                <!-- Informações abaixo da imagem -->
+              
+                <p>Conectamos o mundo físico ao digital com soluções que geram impacto.</p>
+                <a href="#contato" class="btn-primary">Saiba Mais</a>
+            </div>
+        </section>
+
+        <!-- Serviços -->
+        <section id="servicos" class="servicos">
+            <h2>Nossos Serviços</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="bi bi-palette"></i>
+                    <h3>Identidade Visual</h3>
+                    <p>Criamos marcas que se destacam e criam conexões duradouras.</p>
+                </div>
+                <div class="card">
+                    <i class="bi bi-window"></i> <!-- Alterado de bi-browser para bi-window -->
+                    <h3>Landing Pages & Web</h3>
+                    <p>Sites modernos para sua presença digital eficiente.</p>
+                </div>
+                <div class="card">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <h3>Consultoria Estratégica</h3>
+                    <p>Planejamos estratégias que aumentam vendas e engajamento.</p>
+                </div>
+            </div>
+        </section>
+        
+
+ <!-- Sobre Nós -->
+<section id="sobre" class="sobre">
+    <h2>Sobre Nós</h2>
+    <div class="sobre-container">
+        <div class="sobre-texto">
+            <p>A <strong>Perfect Evolution</strong> nasceu para transformar desafios digitais em oportunidades de crescimento.</p>
+            <p>Somos uma equipe apaixonada por inovação, com a missão de criar conexões genuínas entre marcas e pessoas. Nosso trabalho é impulsionado por <span class="destaque">estratégia, criatividade</span> e <span class="destaque">tecnologia</span>.</p>
+            <div class="valores">
+                <h3>Nossos Valores</h3>
+                <ul>
+                    <li><i class="bi bi-lightbulb"></i> <strong>Inovação:</strong> Sempre à frente, criando soluções únicas.</li>
+                    <li><i class="bi bi-people-fill"></i> <strong>Parceria:</strong> Sucesso compartilhado com nossos clientes.</li>
+                    <li><i class="bi bi-shield-check"></i> <strong>Compromisso:</strong> Resultados reais e tangíveis.</li>
+                    <li><i class="bi bi-graph-up"></i> <strong>Evolução:</strong> Aprendemos e crescemos continuamente.</li>
+                </ul>
+            </div>
+            <p>Nosso diferencial está em entregar mais do que soluções: oferecemos experiências digitais transformadoras que ampliam horizontes e impulsionam resultados. 🌟</p>
+        </div>
+        <div class="sobre-imagem">
+            <img src="imagens/conecxao.png" alt="Imagem de conecxão">
+        </div>
+    </div>
+</section>
+       <!-- Portfólio -->
+       <section id="portfolio" class="portfolio">
+        <h2>Portfólio</h2>
+        <div class="portfolio-container">
+            <!-- Projeto 1 -->
+            <div class="projeto" onclick="abrirCarrossel(1)">
+                <img src="imagens/RF.png" alt="Projeto 1">
+                <div class="projeto-info">
+                    <h3>RF Imports</h3>
+                    <p>Alem da estruturação da Identidade Visual e criações de posters, criamos também a Landing 
+                        page da loja (clique para ver o projeto)</p>
+                </div>
+            </div>
+            <!-- Projeto 2 -->
+            <div class="projeto" onclick="abrirCarrossel(2)">
+                <img src="imagens/seleta.png" alt="Projeto 2">
+                <div class="projeto-info">
+                    <h3>Seleta Hortifruti</h3>
+                    <p>Estrutuamos a Identidade Visual e também criamos o aplicativo para facilitar a compra dos clientes (clique para ver o projeto)</p>
+                </div>
+            </div>
+            <!-- Projeto 3 -->
+            <div class="projeto" onclick="abrirCarrossel(3)">
+                <img src="imagens/four.png" alt="Projeto 3">
+                <div class="projeto-info">
+                    <h3>Four Deluxe</h3>
+                    <p>Estruturamos a Indentidade Visual e Criamos uma pequena Landing com redes sociais (clique para ver o projeto)</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal de Carrossel -->
+        <div id="modal-carrossel" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharCarrossel()">&times;</span>
+                <div class="carrossel">
+                    <img id="carrossel-imagem" src="" alt="Imagem do Projeto">
+                </div>
+                <div class="navegacao">
+                    <button onclick="mudarImagem(-1)">&#10094;</button>
+                    <button onclick="mudarImagem(1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+     <!-- Contato -->
+<section id="contato" class="contato">
+    <h2>Entre em Contato</h2>
+    <p>Conecte-se conosco pelas redes sociais e saiba mais sobre nossos serviços!</p>
+    <div class="social-links">
+        <a href="https://wa.me/message/LFIUHM6225E5D1" target="_blank" class="social-btn whatsapp">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.instagram.com/perfect_evolutiontwo/" target="_blank" class="social-btn instagram">
+            <i class="bi bi-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/share/12DCVDjJFhk/?mibextid=wwXIfr" target="_blank" class="social-btn facebook">
+            <i class="bi bi-facebook"></i> Facebook
+        </a>
+        <a href="https://k.kwai.com/u/@perfectevoluti/dnIxC4Im" target="_blank" class="social-btn kwai">
+            <i class="bi bi-camera-video"></i> Kwai
+        </a>
+        <a href="https://www.tiktok.com/@perfectevolution4?_t=ZM-8ssNdyDYsRZ&_r=1" target="_blank" class="social-btn tiktok">
+            <i class="bi bi-tiktok"></i> TikTok
+        </a>
+    </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Perfect Evolution. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

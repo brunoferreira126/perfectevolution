@@ -642,7 +642,8 @@ footer {
 
     .logo {
         order: 2; /* Centraliza a logomarca */
-        width: 70px; /* Reduz o tamanho */
+        width: 100px; /* Reduz o tamanho */
+        
     }
 
     .hamburger {

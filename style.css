@@ -43,7 +43,7 @@ header {
 
 .nav-links a {
     text-decoration: none;
-    color: white;
+    color: #E8E3D6;
     font-size: 1.2em;
     padding: 8px 12px;
     border-radius: 5px;
@@ -61,7 +61,7 @@ header {
 
 .cta-btn {
     background: linear-gradient(to right, #ED3237, #F8A04B);
-    color: white;
+    color: #E8E3D6;
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
@@ -74,7 +74,7 @@ header {
     background: none;
     border: none;
     font-size: 1.8em;
-    color: white;
+    color: #E8E3D6;
     cursor: pointer;
 }
 
@@ -409,14 +409,20 @@ header {
     top: 10px;
     right: 20px;
     font-size: 2em;
-    color: #fff;
+    color: #E8E3D6;
     cursor: pointer;
 }
 
 .carrossel img {
     max-width: 100%;
-    max-height: 800px;
+    max-height: calc(80vh - 40px); /* Adapta a altura da imagem ao viewport */
     object-fit: contain;
+}
+
+.navegacao {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Garante que os botões fiquem alinhados com a imagem */
 }
 
 .navegacao button {
@@ -425,7 +431,7 @@ header {
     color: #fff;
     font-size: 2em;
     cursor: pointer;
-    margin: 0 10px;
+    padding: 10px;
 }
 
 .navegacao button:hover {

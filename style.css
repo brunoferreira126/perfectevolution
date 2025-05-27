@@ -312,70 +312,158 @@ header {
 }
 
 /* Seção Portfólio */
-.portfolio {
-    padding: 50px 20px;
-    background: #000000;
-    color: #E8E3D6;
-    text-align: center;
-}
-
-.portfolio h2 {
-    font-size: 2.5em;
-    font-family: 'Bell MT', serif;
-    font-weight: bold;
-    background: linear-gradient(to right, #215C7C, #00B1AA);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 30px;
-}
-
-.portfolio-container {
+/* Container dos projetos */
+.container-projetos {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
-.projeto {
-    background: linear-gradient(to bottom, #1a1a1a, #333333);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    width: 300px;
-    flex: 1 1 calc(33.333% - 20px); /* Ajuste automático */
-    transition: transform 0.3s, box-shadow 0.3s;
+/* Card do projeto */
+.projeto-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    background-color: black;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 300px;  /* 🔥 largura fixa adequada */
+    box-sizing: border-box;
+     display: flex;
+    flex-direction: column
 }
 
-.projeto img {
-    width: 50%;
+/* Logo centralizada */
+.projeto-card .logo {
+    width: 120px;
     height: auto;
-    object-fit: cover;
+    margin: 0 auto 10px;
+   
 }
 
-.projeto-info {
-    padding: 15px;
-    text-align: left;
-    color: #E8E3D6;
+/* Título */
+.projeto-card h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: white;
 }
 
-.projeto-info h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+/* Print do Instagram */
+.projeto-card .instagram-print {
+    width: 100%;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+/* Botões */
+.projeto-card .botoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.projeto-card .btn {
     background: linear-gradient(to right, #ED3237, #F8A04B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-.projeto-info p {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #cccccc;
+.projeto-card .btn:hover {
+    background-color: #F8A04B;
 }
 
-.projeto:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 40px auto;
+  max-width: 1100px;
 }
+
+.carousel-wrapper {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: calc(100% * 2); /* 2 páginas de 3 cards */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.carousel-btn.prev {
+  left: 0;
+}
+
+.carousel-btn.next {
+  right: 0;
+}
+
+
+
+    .projeto-card {
+        width: 90%;  /* 🔥 ocupa quase toda a largura do celular */
+    }
+
+/* 🔧 DESATIVAR CARROSSEL EM TELAS PEQUENAS */
+@media (max-width: 768px) {
+  .carousel-btn {
+    display: none !important;
+  }
+
+  .carousel-track {
+    transform: none !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .carousel-track .projeto-card {
+    min-width: 100% !important;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-track {
+    flex-direction: column !important;
+    transform: none !important;
+    width: 100% !important;
+    align-items: center;
+  }
+
+  .carousel-track .projeto-card {
+    width: 90% !important;
+    max-width: 100% !important;
+    margin: 0 auto 20px;
+  }
+
+  .carousel-container {
+    overflow: visible !important;
+  }
+}
+
+
+
+
 
 /* Modal */
 .modal {

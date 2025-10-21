@@ -73,3 +73,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+l.Math
+
+function abrirVideo(url) {
+  const modal = document.getElementById("modalVideo");
+  const iframe = document.getElementById("iframeVideo");
+
+  iframe.src = url.replace("/reel/", "/reel/") + "embed"; // abre embed do Instagram
+  modal.style.display = "flex";
+}
+
+function fecharVideo() {
+  const modal = document.getElementById("modalVideo");
+  const iframe = document.getElementById("iframeVideo");
+
+  modal.style.display = "none";
+  iframe.src = ""; // limpa o vídeo
+}

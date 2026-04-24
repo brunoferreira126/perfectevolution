@@ -1,0 +1,220 @@
+/* ===== PORTFOLIO ===== */
+.portfolio {
+  padding: 80px 20px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.portfolio h2 {
+  font-size: 2.5rem;
+  font-family: 'Bell MT', serif;
+  font-weight: bold;
+  background: linear-gradient(to right, #215C7C, #00B1AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portfolio p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.mt {
+  margin-top: 60px;
+}
+
+/* ===== CARROSSEL ===== */
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll 15s linear infinite;
+}
+
+/* ===== INSTAGRAM CARDS ===== */
+.carousel-track .card {
+  min-width: 220px;
+  height: 420px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== SITES GRANDES ===== */
+.carousel-track.slow {
+  animation: scroll 25s linear infinite;
+  gap: 40px;
+}
+
+.site-card {
+  min-width: 80vw; /* 🔥 quase tela inteira */
+  height: 70vh;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  cursor: pointer;
+}
+
+/* imagem */
+.site-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+/* overlay escuro */
+.site-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+/* título */
+.site-card h3 {
+  position: absolute;
+  bottom: 80px;
+  left: 30px;
+  font-size: 2rem;
+  z-index: 2;
+}
+
+/* botão */
+.site-card button {
+  position: absolute;
+  bottom: 25px;
+  left: 30px;
+  z-index: 2;
+  background: linear-gradient(to right, #ED3237, #F8A04B);
+  border: none;
+  padding: 14px 24px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+
+  /* 👇 ESSENCIAL PRA APARECER */
+  box-shadow: 0 0 20px rgba(248, 160, 75, 0.8);
+}
+
+/* hover */
+.site-card:hover img {
+  transform: scale(1.05);
+}
+
+/* indicador de clique */
+.site-card::before {
+  content: "Clique para acessar";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: #fff;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.site-card button {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: 0.3s;
+}
+
+.site-card:hover button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== BLOCO FINAL ===== */
+.conversao {
+  margin-top: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.conversao p {
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: linear-gradient(to right, #ED3237, #F8A04B);
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .carousel-track .card {
+    min-width: 200px;
+    height: 350px;
+  }
+
+  .site-card {
+    min-width: 95vw;
+    height: 50vh;
+  }
+
+  .site-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+
+.card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* BORDA GRADIENTE ANIMADA */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #ED3237, #F8A04B, transparent);
+  opacity: 0;
+  transition: 0.4s;
+  z-index: 0;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* CONTEÚDO ACIMA */
+.card * {
+  position: relative;
+  z-index: 1;
+}

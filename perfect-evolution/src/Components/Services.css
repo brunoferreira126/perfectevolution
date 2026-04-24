@@ -1,0 +1,96 @@
+.services {
+  
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  font-family: 'Bell MT', serif;
+  background: linear-gradient(to right, #215C7C, #00B1AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.services p {
+  color: #aaa;
+  margin-bottom: 50px;
+}
+
+/* GRID */
+.services-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.service-card {
+  background: #111;
+  padding: 40px 25px;
+  border-radius: 20px;
+  width: 280px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+/* ✨ BORDA ANIMADA */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #ED3237, #F8A04B, transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* CONTEÚDO */
+.service-card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ÍCONE */
+.icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #F8A04B;
+}
+
+/* TEXTO */
+.service-card h3 {
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* HOVER */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(248,160,75,0.3);
+}
+
+.services {
+  position: relative;
+}
+
+.services::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(248,160,75,0.15), transparent);
+  top: -100px;
+  right: 0;
+  filter: blur(120px);
+}

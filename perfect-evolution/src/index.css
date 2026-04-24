@@ -1,0 +1,39 @@
+/* RESET GLOBAL (remove bagunça padrão do navegador) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CORPO DO SITE */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #000; /* 🔥 fundo preto padrão */
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* BOTÕES */
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+/* IMAGENS */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* LISTAS */
+ul {
+  list-style: none;
+}
+

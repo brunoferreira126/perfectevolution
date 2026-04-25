@@ -45,7 +45,7 @@ export default function Portfolio() {
       <div className="carousel">
         <div className="carousel-track">
 
-          {[...instagramPerfis, ...instagramPerfis].map((item, index) => (
+          {[...instagramPerfis, ...instagramPerfis, ...instagramPerfis].map((item, index) => (
             <div className="card" key={index}>
               <img src={item.imagem} alt={item.nome} />
               <h3>{item.nome}</h3>

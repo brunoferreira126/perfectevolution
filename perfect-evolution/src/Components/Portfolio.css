@@ -149,82 +149,45 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
-/* ===== RESPONSIVO MOBILE (CORRIGIDO) ===== */
 @media (max-width: 768px) {
 
-  /* ❌ REMOVE animação automática */
+  /* 🔥 MAIS LENTO (bem mais suave) */
   .carousel-track {
-    animation: none;
-    gap: 12px; /* 🔥 menos espaço entre imagens */
+    animation: scroll 60s linear infinite;
+    gap: 10px; /* 🔥 diminui espaço */
   }
 
   .carousel-track.slow {
-    animation: none;
+    animation: scroll 80s linear infinite;
   }
 
-  /* 🔥 ativa scroll manual (estilo instagram) */
-  .carousel {
-    overflow-x: auto;
-  }
-
-  /* 🔥 CARDS MAIORES E MAIS PRÓXIMOS */
+  /* 🔥 CARDS GRANDES */
   .carousel-track .card {
-    min-width: 85vw; /* quase tela inteira */
-    height: 500px;
+    min-width: 75vw; /* menor que 90 pra caber mais de um */
+    height: 480px;
+    flex-shrink: 0;
   }
 
-  /* 🔥 MOSTRA IMAGEM COMPLETA */
+  /* 🔥 IMAGEM AJUSTADA */
   .carousel-track .card img {
     object-fit: contain;
     background: #000;
   }
 
-  /* ===== SITES ===== */
+  /* 🔥 SITES */
   .site-card {
-    min-width: 95vw;
+    min-width: 85vw;
     height: auto;
   }
 
   .site-card img {
     object-fit: contain;
-    height: auto;
   }
 
-  /* 🔥 BOTÃO SEMPRE VISÍVEL (mobile não tem hover) */
+  /* 🔥 BOTÃO SEMPRE VISÍVEL */
   .site-card button {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
-  /* ajuste título */
-  .site-card h3 {
-    font-size: 1.2rem;
-  }
-}
-
-/* ===== CARD BASE ===== */
-.card {
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-/* borda animada */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, #ED3237, #F8A04B, transparent);
-  opacity: 0;
-  transition: 0.4s;
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.card * {
-  position: relative;
-  z-index: 1;
 }

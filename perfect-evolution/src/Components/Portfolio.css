@@ -175,6 +175,7 @@
 }
 
 /* ===== RESPONSIVO ===== */
+
 @media (max-width: 768px) {
   .carousel-track .card {
     min-width: 200px;
@@ -218,3 +219,35 @@
   position: relative;
   z-index: 1;
 }
+
+ .carousel-track {
+    animation: scroll 35s linear infinite; /* mais lento */
+  }
+
+  .carousel-track.slow {
+    animation: scroll 50s linear infinite; /* bem mais lento */
+  }
+
+  @media (max-width: 768px) {
+
+  .carousel-track .card {
+    min-width: 260px; /* maior */
+    height: 500px;
+  }
+
+  .carousel-track .card img {
+    object-fit: contain; /* mostra o perfil completo */
+    background: #000;
+  }
+
+}
+
+ .site-card {
+    min-width: 95vw;
+    height: auto; /* 🔥 MUITO IMPORTANTE */
+  }
+
+  .site-card img {
+    object-fit: contain; /* mostra o site inteiro */
+    height: auto;
+  }

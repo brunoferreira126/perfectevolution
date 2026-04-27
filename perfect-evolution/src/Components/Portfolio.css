@@ -139,20 +139,65 @@
   }
 
   /* sites */
+ @media (max-width: 768px) {
+
+  /* 🔥 INSTAGRAM (mantém como está) */
+  .carousel-track.instagram {
+    animation: scrollInsta 50s linear infinite;
+    gap: 6px;
+  }
+
+  .insta-card {
+    min-width: 80vw;
+    height: 480px;
+  }
+
+  .insta-card img {
+    object-fit: contain;
+    background: #000;
+  }
+
+  /* ===================== */
+  /* 🔥 SITES AJUSTADOS */
+  /* ===================== */
+
   .carousel-track.sites {
     animation: scrollSites 25s linear infinite;
   }
 
   .site-card {
     min-width: 90vw;
-    height: auto;
+    height: auto; /* 🔥 ESSENCIAL */
+    padding: 10px;
   }
 
   .site-card img {
-    object-fit: contain;
+    width: 100%;
+    height: auto; /* 🔥 mostra o site inteiro */
+    object-fit: contain; /* 🔥 NÃO CORTA */
+    border-radius: 10px;
+    background: #000;
   }
 
+  /* 🔥 botão sempre visível */
   .site-card button {
     opacity: 1;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 10px;
   }
+
+  .site-card h3 {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 10px;
+  }
+
+  /* 🔥 remove overlay no mobile (pra não atrapalhar) */
+  .site-card::after {
+    display: none;
+  }
+}
 }

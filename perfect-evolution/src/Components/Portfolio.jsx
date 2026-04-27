@@ -56,7 +56,7 @@ export default function Portfolio() {
 
       <div className="carousel">
         <div
-          className="carousel-track"
+          className="carousel-track instagram"
           ref={trackRef1}
           onMouseDown={() => pause(trackRef1)}
           onMouseUp={() => play(trackRef1)}
@@ -64,8 +64,8 @@ export default function Portfolio() {
           onTouchStart={() => pause(trackRef1)}
           onTouchEnd={() => play(trackRef1)}
         >
-          {[...instagramPerfis, ...instagramPerfis, ...instagramPerfis].map((item, index) => (
-            <div className="card" key={index}>
+          {[...instagramPerfis, ...instagramPerfis].map((item, index) => (
+            <div className="insta-card" key={index}>
               <img src={item.imagem} alt={item.nome} />
               <h3>{item.nome}</h3>
             </div>
@@ -79,7 +79,7 @@ export default function Portfolio() {
 
       <div className="carousel">
         <div
-          className="carousel-track slow"
+          className="carousel-track sites"
           ref={trackRef2}
           onMouseDown={() => pause(trackRef2)}
           onMouseUp={() => play(trackRef2)}
@@ -87,7 +87,7 @@ export default function Portfolio() {
           onTouchStart={() => pause(trackRef2)}
           onTouchEnd={() => play(trackRef2)}
         >
-          {[...sites, ...sites, ...sites].map((item, index) => (
+          {[...sites, ...sites].map((item, index) => (
             <a
               href={item.link}
               target="_blank"

@@ -165,7 +165,7 @@
   }
 
   .carousel-track.slow {
-    animation: scroll 60s linear infinite; /* 🔥 mais rápido que perfis */
+    animation: scroll 20s linear infinite; /* 🔥 mais rápido que perfis */
   }
 
   .carousel-track .card {

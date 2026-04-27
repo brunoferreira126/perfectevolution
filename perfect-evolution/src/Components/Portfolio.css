@@ -30,15 +30,23 @@
   position: relative;
 }
 
-/* 🔥 ANIMAÇÃO PADRÃO (DESKTOP) */
+/* 🔥 TRACK CORRIGIDO (IPHONE FIX) */
 .carousel-track {
   display: flex;
   gap: 20px;
-  width: max-content;
-  animation: scroll 20s linear infinite; /* mais suave */
+  width: fit-content; /* 🔥 resolve bug Safari */
+  animation: scroll 25s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
-/* ===== INSTAGRAM CARDS ===== */
+/* 🔥 MAIS RÁPIDO PARA SITES */
+.carousel-track.slow {
+  animation: scroll 20s linear infinite;
+  gap: 30px;
+}
+
+/* ===== INSTAGRAM ===== */
 .carousel-track .card {
   min-width: 220px;
   height: 420px;
@@ -54,11 +62,6 @@
 }
 
 /* ===== SITES ===== */
-.carousel-track.slow {
-  animation: scroll 30s linear infinite;
-  gap: 30px;
-}
-
 .site-card {
   min-width: 80vw;
   height: 70vh;
@@ -110,7 +113,6 @@
   font-size: 1rem;
   box-shadow: 0 0 20px rgba(248, 160, 75, 0.8);
 
-  /* ❌ escondido no desktop */
   opacity: 0;
   transform: translateY(15px);
   transition: 0.3s;
@@ -125,7 +127,6 @@
   transform: scale(1.05);
 }
 
-/* indicador */
 .site-card::before {
   content: "Clique para acessar";
   position: absolute;
@@ -144,39 +145,42 @@
   margin-inline: auto;
 }
 
-/* ===== ANIMAÇÃO ===== */
+/* ===== ANIMAÇÃO (IPHONE FIX) ===== */
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); } /* 🔥 menos distância */
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-33.333%,0,0); }
 }
+
+/* ===== PAUSA AO PASSAR / TOCAR ===== */
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
 
-  /* 🔥 MAIS LENTO (bem mais suave) */
   .carousel-track {
-    animation: scroll 60s linear infinite;
-    gap: 10px; /* 🔥 diminui espaço */
+    animation: scroll 100s linear infinite; /* 🔥 bem lento */
+    gap: 6px;
   }
 
   .carousel-track.slow {
-    animation: scroll 80s linear infinite;
+    animation: scroll 60s linear infinite; /* 🔥 mais rápido que perfis */
   }
 
-  /* 🔥 CARDS GRANDES */
   .carousel-track .card {
-    min-width: 75vw; /* menor que 90 pra caber mais de um */
+    min-width: 80vw;
     height: 480px;
     flex-shrink: 0;
   }
 
-  /* 🔥 IMAGEM AJUSTADA */
   .carousel-track .card img {
     object-fit: contain;
     background: #000;
   }
 
-  /* 🔥 SITES */
   .site-card {
-    min-width: 85vw;
+    min-width: 90vw;
     height: auto;
   }
 
@@ -184,10 +188,9 @@
     object-fit: contain;
   }
 
-  /* 🔥 BOTÃO SEMPRE VISÍVEL */
+  /* botão sempre visível */
   .site-card button {
     opacity: 1;
     transform: none;
   }
-
 }

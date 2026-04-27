@@ -160,7 +160,7 @@
 @media (max-width: 768px) {
 
   .carousel-track {
-    animation: scroll 100s linear infinite; /* 🔥 bem lento */
+    animation: scroll 30s linear infinite; /* 🔥 bem lento */
     gap: 6px;
   }
 

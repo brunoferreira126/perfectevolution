@@ -1,17 +1,15 @@
+import logo from "../assets/logo.png";
 import "./Footer.css";
-import { FaWhatsapp, FaInstagram, FaTiktok, FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="footer">
-
-
-
-      {/* COPYRIGHT */}
-      <p className="copy">
-        © {new Date().getFullYear()} Perfect Evolution — Todos os direitos reservados
-      </p>
-
+      <a href="#hero" className="footer-brand" aria-label="Voltar ao inicio">
+        <img src={logo} alt="Perfect Evolution" />
+        <span>Perfect Evolution</span>
+      </a>
+      <p>Design, estrategia e crescimento digital.</p>
+      <small>© {new Date().getFullYear()} Perfect Evolution. Todos os direitos reservados.</small>
     </footer>
   );
 }

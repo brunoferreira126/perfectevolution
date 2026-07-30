@@ -1,206 +1,204 @@
-/* ===== PORTFOLIO ===== */
 .portfolio {
-  padding: 80px 20px;
-  background: #000;
-  color: #fff;
-  text-align: center;
-}
-
-.portfolio h2 {
-  font-size: 2.5rem;
-  font-family: 'Bell MT', serif;
-  font-weight: bold;
-  background: linear-gradient(to right, #215C7C, #00B1AA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.portfolio p {
-  color: #aaa;
-  margin-bottom: 30px;
-}
-
-.mt {
-  margin-top: 60px;
-}
-
-/* ===== CARROSSEL ===== */
-.carousel {
   overflow: hidden;
+  padding: 96px 0;
 }
 
-/* ===== TRACK BASE ===== */
-.carousel-track {
+.portfolio .section-heading {
+  padding: 0 18px;
+}
+
+.portfolio-marquee {
+  margin-top: 46px;
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-marquee::before,
+.portfolio-marquee::after {
+  content: "";
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 12vw;
+  z-index: 2;
+}
+
+.portfolio-marquee::before {
+  background: linear-gradient(90deg, var(--bg), transparent);
+  left: 0;
+}
+
+.portfolio-marquee::after {
+  background: linear-gradient(270deg, var(--bg), transparent);
+  right: 0;
+}
+
+.portfolio-track {
+  animation: portfolioScroll 46s linear infinite;
   display: flex;
+  gap: 14px;
   width: max-content;
   will-change: transform;
 }
 
-/* ===================== */
-/* INSTAGRAM */
-/* ===================== */
-.carousel-track.instagram {
-  gap: 10px;
-  animation: scrollInsta 35s linear infinite;
+.portfolio-marquee:hover .portfolio-track {
+  animation-play-state: paused;
 }
 
-@keyframes scrollInsta {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes portfolioScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .insta-card {
-  min-width: 220px;
-  height: 420px;
-  border-radius: 15px;
+  aspect-ratio: 9 / 16;
+  background: #111;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  flex: 0 0 224px;
   overflow: hidden;
   position: relative;
 }
 
 .insta-card img {
-  width: 100%;
   height: 100%;
   object-fit: cover;
+  width: 100%;
 }
 
-/* ===================== */
-/* SITES */
-/* ===================== */
-.carousel-track.sites {
-  gap: 25px;
-  animation: scrollSites 25s linear infinite;
+.insta-card span {
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.82));
+  bottom: 0;
+  font-weight: 800;
+  left: 0;
+  padding: 42px 14px 14px;
+  position: absolute;
+  right: 0;
 }
 
-@keyframes scrollSites {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.site-showcase {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr;
+  margin: 70px auto 0;
+  max-width: 1220px;
+  padding: 0 clamp(18px, 6vw, 82px);
 }
 
 .site-card {
-  min-width: 70vw;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: grid;
+  gap: 18px;
+  min-height: 360px;
   overflow: hidden;
-  flex-shrink: 0;
-  background: #111;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 🔥 AQUI RESOLVE TUDO */
-.site-card img {
-  width: 100%;
-  height: auto; /* NÃO corta */
-  object-fit: contain; /* mostra inteiro */
-  display: block;
-  border-radius: 10px;
-  background: #000;
-}
-
-/* texto */
-.site-card h3 {
-  margin-top: 10px;
-  font-size: 1.2rem;
-}
-
-/* botão */
-.site-card button {
-  margin-top: 10px;
-  background: linear-gradient(to right, #ED3237, #F8A04B);
-  border: none;
   padding: 12px;
-  color: white;
-  border-radius: 10px;
-  font-weight: bold;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-/* ===== BLOCO FINAL ===== */
-.conversao {
-  margin-top: 60px;
-  max-width: 600px;
-  margin-inline: auto;
+.site-card:first-child {
+  grid-row: span 2;
 }
 
-/* ===================== */
-/* MOBILE (IPHONE FIX REAL) */
-/* ===================== */
-@media (max-width: 768px) {
+.site-card:hover {
+  border-color: rgba(248, 160, 75, 0.6);
+  box-shadow: 0 26px 80px rgba(237, 50, 55, 0.16);
+  transform: translateY(-4px);
+}
 
-  /* INSTAGRAM */
-  .carousel-track.instagram {
-    animation: scrollInsta 60s linear infinite;
-    gap: 6px;
+.site-card img {
+  background: #000;
+  border-radius: 6px;
+  height: 100%;
+  max-height: 470px;
+  object-fit: cover;
+  object-position: top center;
+  width: 100%;
+}
+
+.site-card div {
+  padding: 0 8px 10px;
+}
+
+.site-card span {
+  color: var(--orange);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.site-card h3 {
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+}
+
+.conversion-panel {
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(237, 50, 55, 0.22), rgba(0, 177, 170, 0.12)),
+    rgba(255, 255, 255, 0.055);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
+  margin: 56px auto 0;
+  max-width: 1060px;
+  padding: 28px;
+}
+
+.conversion-panel p {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.4rem, 3vw, 2.35rem);
+  line-height: 1.06;
+  max-width: 670px;
+}
+
+.conversion-panel .btn-primary {
+  flex: 0 0 auto;
+  padding: 0 22px;
+}
+
+@media (max-width: 920px) {
+  .site-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .site-card:first-child {
+    grid-row: auto;
+  }
+
+  .conversion-panel {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}
+
+@media (max-width: 620px) {
+  .portfolio {
+    padding: 72px 0;
   }
 
   .insta-card {
-    min-width: 75vw;
-    height: 420px;
+    flex-basis: 72vw;
   }
 
-  .insta-card img {
-    object-fit: contain;
-    background: #000;
+  .site-card {
+    min-height: 300px;
   }
 
-  /* 🔥 SITES (AGORA PERFEITO) */
-  .carousel-track.sites {
-    animation: scrollSites 30s linear infinite;
-  }
-.site-card {
-  min-width: 85vw;
-  height: 420px; /* 🔥 altura controlada (igual sua imagem) */
-  border-radius: 20px;
-  background: #111;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* 🔥 separa imagem e botão */
-}
-
-/* 🔥 CONTAINER DA IMAGEM */
-.site-card .image-wrapper {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* 🔥 IMAGEM */
-.site-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* mostra o site inteiro */
-}
-
-/* 🔥 TEXTO */
-.site-card h3 {
-  font-size: 1rem;
-  margin: 10px;
-}
-
-/* 🔥 BOTÃO FIXO */
-.site-card button {
-  margin: 10px;
-  padding: 10px;
-  background: linear-gradient(to right, #ED3237, #F8A04B);
-  border: none;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
-}
-
-@keyframes scrollPreview {
-  0% { top: 0; }
-  100% { top: -60%; }
-}
-
-  .site-card h3 {
-    font-size: 1rem;
-  }
-
-  .site-card button {
-    padding: 10px;
-    font-size: 0.9rem;
+  .conversion-panel .btn-primary {
+    width: 100%;
   }
 }

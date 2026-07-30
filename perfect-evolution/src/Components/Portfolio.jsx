@@ -1,129 +1,86 @@
 import "./Portfolio.css";
-import { useRef } from "react";
-
 import instituto from "../assets/projetos/instituto.png";
 import algg from "../assets/projetos/algg.png";
 import rf from "../assets/projetos/rf.png";
 
-// ===============================
-// INSTAGRAM
-// ===============================
 const instagramPerfis = Array.from({ length: 13 }, (_, i) => ({
-  nome: `Cliente ${i + 1}`,
-  imagem: new URL(`../assets/projetos/insta-${i + 1}.png`, import.meta.url).href
+  nome: `Projeto ${String(i + 1).padStart(2, "0")}`,
+  imagem: new URL(`../assets/projetos/insta-${i + 1}.png`, import.meta.url).href,
 }));
 
-// ===============================
-// SITES
-// ===============================
 const sites = [
   {
-    nome: "Instituto",
+    nome: "Instituto da Natureza",
     imagem: instituto,
-    link: "https://institutodanatureza.com.br/"
+    link: "https://institutodanatureza.com.br/",
   },
   {
-    nome: "Algg",
+    nome: "ALGG Servicos Impressos",
     imagem: algg,
-    link: "https://alggservicosimpressos.netlify.app"
+    link: "https://alggservicosimpressos.netlify.app",
   },
   {
-    nome: "RF",
+    nome: "RF Imports",
     imagem: rf,
-    link: "https://rf-imports.netlify.app"
-  }
+    link: "https://rf-imports.netlify.app",
+  },
 ];
 
 export default function Portfolio() {
-
-  const trackRef1 = useRef(null);
-  const trackRef2 = useRef(null);
-
-  const pause = (ref) => {
-    if (ref.current) ref.current.style.animationPlayState = "paused";
-  };
-
-  const play = (ref) => {
-    if (ref.current) ref.current.style.animationPlayState = "running";
-  };
-
   return (
-    <section className="portfolio">
+    <section className="portfolio" id="portfolio">
+      <div className="section-heading">
+        <span>Prova visual</span>
+        <h2>Quando a marca muda de nivel, o cliente percebe antes de ler.</h2>
+        <p>
+          Uma selecao de identidades, perfis e landing pages criadas para gerar
+          autoridade imediata.
+        </p>
+      </div>
 
-      {/* ===== INSTAGRAM ===== */}
-      <h2>Resultados Reais</h2>
-      <p>Perfis que já passaram pela nossa estratégia</p>
-
-      <div className="carousel">
-        <div
-          className="carousel-track instagram"
-          ref={trackRef1}
-          onMouseDown={() => pause(trackRef1)}
-          onMouseUp={() => play(trackRef1)}
-          onMouseLeave={() => play(trackRef1)}
-          onTouchStart={() => pause(trackRef1)}
-          onTouchEnd={() => play(trackRef1)}
-        >
+      <div className="portfolio-marquee" aria-label="Projetos de Instagram">
+        <div className="portfolio-track">
           {[...instagramPerfis, ...instagramPerfis].map((item, index) => (
-            <div className="insta-card" key={index}>
+            <article className="insta-card" key={`${item.nome}-${index}`}>
               <img src={item.imagem} alt={item.nome} />
+              <span>{item.nome}</span>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div className="site-showcase">
+        {sites.map((item) => (
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            key={item.nome}
+            className="site-card"
+          >
+            <img src={item.imagem} alt={`Preview do projeto ${item.nome}`} />
+            <div>
+              <span>Landing page</span>
               <h3>{item.nome}</h3>
             </div>
-          ))}
-        </div>
+          </a>
+        ))}
       </div>
 
-      {/* ===== SITES ===== */}
-      <h2 className="mt">Sites e Landing Pages</h2>
-      <p>Projetos pensados para atrair e converter clientes</p>
-
-      <div className="carousel">
-        <div
-          className="carousel-track sites"
-          ref={trackRef2}
-          onMouseDown={() => pause(trackRef2)}
-          onMouseUp={() => play(trackRef2)}
-          onMouseLeave={() => play(trackRef2)}
-          onTouchStart={() => pause(trackRef2)}
-          onTouchEnd={() => play(trackRef2)}
-        >
-          {[...sites, ...sites].map((item, index) => (
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={index}
-              className="site-card"
-            >
-              <img src={item.imagem} alt={item.nome} />
-              <h3>{item.nome}</h3>
-              <button>Visite</button>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* ===== FINAL ===== */}
-      <div className="conversao">
+      <div className="conversion-panel">
         <p>
-          Ter apenas um Instagram não é suficiente.
-          Seu cliente precisa entender, confiar e agir.
+          Uma marca forte nao depende da sorte do algoritmo. Ela cria contexto,
+          prova e desejo em cada ponto de contato.
         </p>
-
-        <p>
-          Uma landing page bem estruturada apresenta sua empresa,
-          responde dúvidas e transforma visitas em clientes.
-        </p>
-
         <a
-          href="https://wa.me/5585981906528"
+          href="https://wa.me/5585981906528?text=Ola%2C%20quero%20uma%20landing%20page%20e%20uma%20presenca%20digital%20mais%20forte."
           target="_blank"
-          className="btn"
+          rel="noopener noreferrer"
+          className="btn-primary"
         >
-          Falar no WhatsApp
+          Quero esse nivel para minha marca
         </a>
       </div>
-
     </section>
   );
 }

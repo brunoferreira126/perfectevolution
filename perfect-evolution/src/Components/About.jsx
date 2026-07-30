@@ -1,47 +1,51 @@
+import { FaCheckCircle, FaInstagram } from "react-icons/fa";
 import "./About.css";
+
+const principles = [
+  "Design com intencao comercial",
+  "Comunicacao clara para vender sem parecer forca",
+  "Presenca digital consistente em todos os canais",
+];
 
 export default function About() {
   return (
-    <section className="about">
+    <section className="about" id="sobre">
+      <div className="about-copy">
+        <span>Sobre a Perfect</span>
+        <h2>Criatividade bonita e estrategia afiada na mesma mesa.</h2>
+        <p>
+          A Perfect Evolution nasceu para tirar negocios do visual improvisado e
+          colocar marcas em uma presenca digital com criterio, desejo e
+          conversao.
+        </p>
 
-      <h2>Quem Somos</h2>
+        <div className="principles">
+          {principles.map((item) => (
+            <p key={item}>
+              <FaCheckCircle />
+              {item}
+            </p>
+          ))}
+        </div>
 
-      <p className="sub" id="sobre">
-        Mais do que posts, criamos posicionamento que gera vendas.
-      </p>
+        <a
+          href="https://www.instagram.com/perfectevolutiontwo/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="about-link"
+        >
+          <FaInstagram />
+          Ver a Perfect no Instagram
+        </a>
+      </div>
 
-      {/* VIDEO */}
-      <div className="video-container">
+      <div className="about-video" aria-label="Video institucional">
         <iframe
           src="https://www.instagram.com/reel/DPSCIUXAV2g/embed"
-          title="Vídeo institucional"
+          title="Video institucional Perfect Evolution"
           allowFullScreen
         ></iframe>
       </div>
-
-      {/* TEXTO */}
-      <div className="about-text">
-        <p>
-          A Perfect Evolution nasceu com um objetivo claro:
-          ajudar empresas a saírem do amadorismo no digital
-          e se posicionarem de forma estratégica.
-        </p>
-
-        <p>
-          Não trabalhamos com volume, trabalhamos com resultado.
-          Cada projeto é pensado para atrair, conectar e converter.
-        </p>
-      </div>
-
-      {/* CTA LEVE */}
-      <a
-        href="https://wa.me/5585981906528"
-        target="_blank"
-        className="about-btn"
-      >
-        Quero entender melhor
-      </a>
-
     </section>
   );
 }
